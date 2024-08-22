@@ -1,0 +1,32 @@
+﻿@model List<Blogger.Web.Models.Domain.Tag>
+
+@{
+}
+<div class="container">
+    @if (Model != null)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th> Id </th>
+                    <th> Name </th>
+                    <th> Display Name </th>
+                    <th>  </th>
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var tag in Model)
+                {
+                    <tr>
+                        <td> @tag.Id </td>
+                        <td> @tag.Name </td>
+                        <td> @tag.DisplayName </td>
+                        <td> <a asp-area="" asp-controller="AdminTags" asp-action="Edit" asp-route-Id="@tag.Id" >Edit</a></td>
+                        <td> <a asp-area="" asp-controller="AdminTags" asp-action="DeleteTag" asp-route-Id="@tag.Id">Delete</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
